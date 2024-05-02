@@ -5,18 +5,17 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+  styleUrl: './search.component.css',
 })
 export class SearchComponent {
   searchTerm = '';
-  constructor(activatedRoute:ActivatedRoute, private router:Router) {
+  constructor(activatedRoute: ActivatedRoute, private router: Router) {
     activatedRoute.params.subscribe((params) => {
-      if(params.searchTerm)
-        this.searchTerm = params.searchTerm;
-    })
+      if (params.searchTerm) this.searchTerm = params.searchTerm;
+    });
   }
 
-  search(term:string):void {
+  search(term: string): void {
     this.router.navigateByUrl('/search/' + term);
   }
 }

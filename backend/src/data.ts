@@ -1,9 +1,7 @@
-import { Tag } from './app/shared/models/Tag';
-import { Food } from './app/shared/models/food';
 
-export const sample_foods: Food[] = [
+export const sample_foods: any[] = [
   {
-    id: '1',
+    id:'1',
     name: 'Pepperoni Pizza',
     cookTime: '10-20',
     price: 10,
@@ -13,7 +11,7 @@ export const sample_foods: Food[] = [
     tags: ['FastFood', 'Pizza', 'Ebéd'],
   },
   {
-    id: '2',
+    id:'2',
     name: 'Fasírt',
     price: 20,
     cookTime: '20-30',
@@ -23,7 +21,7 @@ export const sample_foods: Food[] = [
     tags: ['SlowFood', 'Ebéd'],
   },
   {
-    id: '3',
+    id:'3',
     name: 'Hamburger',
     price: 5,
     cookTime: '10-15',
@@ -33,7 +31,7 @@ export const sample_foods: Food[] = [
     tags: ['FastFood', 'Hamburger'],
   },
   {
-    id: '4',
+    id:'4',
     name: 'Sültkrumpli',
     price: 2,
     cookTime: '15-20',
@@ -43,7 +41,7 @@ export const sample_foods: Food[] = [
     tags: ['FastFood', 'Sült'],
   },
   {
-    id: '5',
+    id:'5',
     name: 'Húsleves',
     price: 11,
     cookTime: '40-50',
@@ -53,7 +51,7 @@ export const sample_foods: Food[] = [
     tags: ['SlowFood', 'Leves'],
   },
   {
-    id: '6',
+    id:'6',
     name: 'Hawaii Pizza',
     price: 9,
     cookTime: '20-30',
@@ -63,7 +61,7 @@ export const sample_foods: Food[] = [
     tags: ['FastFood', 'Pizza', 'Ebéd'],
   },
   {
-    id: '7',
+    id:'7',
     name: 'Rantott hús',
     price: 15,
     cookTime: '30-40',
@@ -73,7 +71,7 @@ export const sample_foods: Food[] = [
     tags: ['SlowFood', 'Sült', 'Ebéd'],
   },
   {
-    id: '8',
+    id:'8',
     name: 'Gyümölcsleves',
     price: 10,
     cookTime: '40-50',
@@ -83,7 +81,7 @@ export const sample_foods: Food[] = [
     tags: ['SlowFood', 'Leves'],
   },
   {
-    id: '9',
+    id:'9',
     name: 'Spagetti',
     price: 9,
     cookTime: '20-30',
@@ -93,7 +91,7 @@ export const sample_foods: Food[] = [
     tags: ['SlowFood', 'Ebéd'],
   },
   {
-    id: '10',
+    id:'10',
     name: 'Hotdog',
     price: 4,
     cookTime: '10-20',
@@ -102,9 +100,9 @@ export const sample_foods: Food[] = [
     imageUrl: 'assets/Hotdog.png',
     tags: ['FastFood'],
   },
-];
+]
 
-export const sample_tags: Tag[] = [
+export const sample_tags:any[] = [
   { name: 'Összes', count: 10 },
   { name: 'FastFood', count: 5 },
   { name: 'Pizza', count: 2 },
@@ -113,4 +111,4 @@ export const sample_tags: Tag[] = [
   { name: 'Hamburger', count: 1 },
   { name: 'Sült', count: 2 },
   { name: 'Leves', count: 2 },
-];
+]
