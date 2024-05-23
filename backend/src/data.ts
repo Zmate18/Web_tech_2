@@ -112,3 +112,20 @@ export const sample_tags:any[] = [
   { name: 'Sült', count: 2 },
   { name: 'Leves', count: 2 },
 ]
+
+export const sample_users: any[] = [
+  {
+    name: "Tóth Tamás",
+    email: "tamas@gmail.com",
+    password: "12345",
+    address: "Budapest",
+    isAdmin: true,
+  },
+  {
+    name: "Nagy János",
+    email: "janos@gmail.com",
+    password: "12345",
+    address: "Debrecen",
+    isAdmin: false,
+  },
+];

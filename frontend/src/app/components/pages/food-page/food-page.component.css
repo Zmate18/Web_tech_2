@@ -79,7 +79,7 @@ img {
 }
 
 .price::before {
-  content: "Price: ";
+  content: "Ár: ";
   color: darkgrey;
 }
 
