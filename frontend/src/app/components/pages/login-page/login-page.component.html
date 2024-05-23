@@ -3,40 +3,23 @@
     <app-title title="Bejelentkezés"></app-title>
 
     <form [formGroup]="loginForm" (ngSubmit)="submit()">
-      <div class="input-container">
-        <label>Email</label>
-        <div>
-          <input type="email" placeholder="Email" formControlName="email" />
-        </div>
+      <text-input
+        [control]="fc.email"
+        [showErrorsWhen]="isSubmitted"
+        type="email"
+        label="Email"
+      >
+      </text-input>
 
-        <div class="error-list" *ngIf="fc.email.errors && isSubmitted">
-          <div *ngIf="fc.email.errors.required">
-            Az email cím megadása kötelező
-          </div>
-          <div *ngIf="fc.email.errors.email">
-            Az email cím formátuma nem megfelelő
-          </div>
-        </div>
-      </div>
-      <div class="input-container">
-        <label>Jelszó</label>
-        <div>
-          <input
-            type="password"
-            placeholder="Jelszó"
-            formControlName="password"
-          />
-        </div>
+      <text-input
+        [control]="fc.password"
+        [showErrorsWhen]="isSubmitted"
+        type="password"
+        label="Jelszó"
+      >
+      </text-input>
 
-        <div class="error-list" *ngIf="fc.password.errors && isSubmitted">
-          <div *ngIf="fc.password.errors.required">
-            A jelszó megadása kötelező
-          </div>
-        </div>
-      </div>
-      <div class="button">
-        <button type="submit">Bejelentkezés</button>
-      </div>
+      <default-button text="Bejelentkezés"></default-button>
     </form>
   </div>
 </div>
