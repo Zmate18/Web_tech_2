@@ -3,7 +3,9 @@ import { AbstractControl } from '@angular/forms';
 
 const VALIDATORS_MESSAGES:any = {
   required: 'A mező kitöltése kötelező!',
-  email: 'Az email cím formátuma nem megfelelő!'
+  email: 'Az email cím formátuma nem megfelelő!',
+  minlength: 'A mező tartalma túl rövid!',
+  notMatch: 'A két jelszó nem egyezik meg!'
 };
 
 @Component({

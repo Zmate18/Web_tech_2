@@ -3,15 +3,18 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { User } from '../shared/models/User';
 import { IUserLogin } from '../shared/interfaces/IUserLogin';
 import { HttpClient } from '@angular/common/http';
-import { USER_LOGIN_URL } from '../shared/constants/urls';
+import { USER_LOGIN_URL, USER_REGISTER_URL } from '../shared/constants/urls';
 import { ToastrService } from 'ngx-toastr';
+import { IUserRegister } from '../shared/interfaces/IUserRegister';
 
 const USER_KEY = 'User';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private userSubject = new BehaviorSubject<User>(this.getUserFromLocalStorage());
+  private userSubject = new BehaviorSubject<User>(
+    this.getUserFromLocalStorage()
+  );
   public userObservable: Observable<User>;
   constructor(private http: HttpClient, private toastrService: ToastrService) {
     this.userObservable = this.userSubject.asObservable();
@@ -26,23 +29,43 @@ export class UserService {
           this.toastrService.success(
             `Üdvözöljük ${user.name}!`,
             'Sikeres bejelentkezés'
-          )
+          );
         },
         error: (errorResponse) => {
-          this.toastrService.error(errorResponse.error,
-            'Sikertelen bejelentkezés')
-        }
+          this.toastrService.error(
+            errorResponse.error,
+            'Sikertelen bejelentkezés'
+          );
+        },
       })
     );
   }
 
-  logout(){
+  register(userRegiser: IUserRegister): Observable<User> {
+    return this.http.post<User>(USER_REGISTER_URL, userRegiser).pipe(
+      tap({
+        next: (user) => {
+          this.setUserToLocalStorage(user);
+          this.userSubject.next(user);
+          this.toastrService.success(
+            `Üdvözöljük ${user.name}`,
+            'Sikeres regisztráció'
+          );
+        },
+        error: (errorResponse) => {
+          this.toastrService.error(errorResponse.error, 'Sikertelen regisztráció');
+        },
+      })
+    );
+  }
+
+  logout() {
     this.userSubject.next(new User());
     localStorage.removeItem(USER_KEY);
     window.location.reload();
   }
 
-  private setUserToLocalStorage(user: User){
+  private setUserToLocalStorage(user: User) {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem(USER_KEY, JSON.stringify(user));
     } else {
@@ -50,7 +73,7 @@ export class UserService {
     }
   }
 
-  private getUserFromLocalStorage():User{
+  private getUserFromLocalStorage(): User {
     if (typeof localStorage !== 'undefined') {
       const userJson = localStorage.getItem(USER_KEY);
       if (userJson) return JSON.parse(userJson) as User;

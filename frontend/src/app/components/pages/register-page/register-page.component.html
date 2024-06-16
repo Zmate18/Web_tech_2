@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="details">
+    <app-title title="Regisztráció"></app-title>
+    <form [formGroup]="registerForm" (ngSubmit)="submit()">
+      <text-input
+        [control]="fc.name"
+        [showErrorsWhen]="isSubmitted"
+        label="Név"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.email"
+        [showErrorsWhen]="isSubmitted"
+        label="Email"
+        type="email"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.password"
+        [showErrorsWhen]="isSubmitted"
+        label="Jelszó"
+        type="password"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.confirmPassword"
+        [showErrorsWhen]="isSubmitted"
+        label="Jelszó megerősítése"
+        type="password"
+      >
+        `</text-input
+      >
+
+      <text-input
+        [control]="fc.address"
+        [showErrorsWhen]="isSubmitted"
+        label="Cím"
+      >
+        `</text-input
+      >
+
+      <default-button text="Regisztráció"></default-button>
+
+      <div class="login">
+        Már van felhasználód? &nbsp;
+        <a routerLink="/login" [queryParams]="{ returnUrl: returnUrl }">
+          Jelentkezz be
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
